@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../../App.css";
 import { Post } from "../../utils/api";
+import authService from "../../utils/auth.service";
 
 export default function SignUpPage() {
   const [firstName, setFirstName] = useState();
@@ -12,6 +13,8 @@ export default function SignUpPage() {
     console.log(org);
   }, [org]);
 
+  const navigate = useNavigate();
+
   const register = async () => {
     const data = await Post("users", {
       username: firstName,
@@ -20,6 +23,24 @@ export default function SignUpPage() {
 
     console.log(data);
     localStorage.setItem("token", data.data.token);
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await authService.register(firstName, org).then(
+        (response) => {
+          console.log(response);
+          navigate("/home");
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -71,7 +92,7 @@ export default function SignUpPage() {
           .
         </p>
         <p>
-          <button id="sub_btn" onClick={register} type="button">
+          <button id="sub_btn" onClick={handleRegister} type="button">
             Register
           </button>
         </p>
