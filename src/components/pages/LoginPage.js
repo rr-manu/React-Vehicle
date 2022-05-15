@@ -33,7 +33,12 @@ export default function SignInPage() {
       await  authService.login(first_name, Organization).then(
         (response) => {
           console.log(response);
-          navigate("/home");
+          if(Organization === "Owner"){
+            navigate("/owner-dashboard");
+          }else{
+            navigate("/home");
+          }
+     
           window.location.reload();
         },
         (error) => {

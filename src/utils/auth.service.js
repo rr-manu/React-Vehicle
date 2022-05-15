@@ -1,6 +1,36 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 const baseURL = "http://localhost:4000/";
+
+//get token
+const getToken = () => {
+    return localStorage.getItem("token");
+};
+
+//decode token and get username and orgname
+const decodeToken = () => {
+    const token = getToken();
+    if (token) {
+        const decoded = jwt_decode(token);
+        return {
+            username: decoded.username,
+            orgName: decoded.orgName,
+        };
+    }
+};
+
+const getUsername = () => {
+    const decoded = decodeToken();
+    return decoded.username;
+};
+
+const getOrgName = () => {
+    const decoded = decodeToken();
+    return decoded.orgName;
+};
+
+
 
 //api for register
 const register = (username,orgName) => {
@@ -43,6 +73,8 @@ const logout = () => {
 const authService = {
     register,
     login,
+    getUsername,
+    getOrgName,
     logout
 };
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import {useState,useEffect} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import LandingPage from './components/pages/LandingPage'
@@ -8,8 +9,11 @@ import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
 
 import './App.css'
+import authService from './utils/auth.service'
+import OwnerDashboard from './components/pages/OwnerDashboard'
 
 export default function App() {
+
     return (
         <Router>
             <div>
@@ -19,6 +23,7 @@ export default function App() {
                     <Route path="/register" element={ <RegisterPage/> } />
                     <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
                     <Route path="/home" element={ <HomePage/> } />
+                    <Route path='/owner-dashboard' element={ <OwnerDashboard/> } />
                 </Routes>
             </div>
         </Router>

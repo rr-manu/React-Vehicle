@@ -31,7 +31,11 @@ export default function SignUpPage() {
       await authService.register(firstName, org).then(
         (response) => {
           console.log(response);
-          navigate("/home");
+          if(org === "Owner"){
+            navigate("/owner-dashboard");
+          }else{
+            navigate("/home");
+          }
           window.location.reload();
         },
         (error) => {
