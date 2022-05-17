@@ -1,6 +1,19 @@
+
+.vehicle-details {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 .inner {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 

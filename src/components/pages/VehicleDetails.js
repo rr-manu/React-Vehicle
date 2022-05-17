@@ -67,9 +67,8 @@ export default function VehicleDetails() {
     <div className="text-center">
       <h1 className="main-title home-page-title">Vehicle Details</h1>
         <h2>These are the details of {carid}</h2>
-        <div className='outer' >
             {/* display vehicle data */}
-            {hasVehicleData && <div className='inner'>
+            {hasVehicleData && <div className='innertable'>
                 <div className='vehicle-details' style={{alignContent:'center'}}>
                     <table>
                         <tbody>
@@ -129,7 +128,7 @@ export default function VehicleDetails() {
                     </table>
                 </div>
                 </div>}
-        </div>
+
         <h2>History of {carid}</h2>
         <div className='outer' >
             {/* display vehicle history */}
