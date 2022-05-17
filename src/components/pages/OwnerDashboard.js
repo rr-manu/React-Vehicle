@@ -47,9 +47,6 @@ export default function OwnerDashboard() {
             <Link to="/cars-for-sale">
                 <button className="primary-button">Cars for Sale</button>
             </Link>
-            <Link to="/cars-for-resale">
-                <button className="primary-button">Cars for Resale</button>
-            </Link>
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
             </Link>

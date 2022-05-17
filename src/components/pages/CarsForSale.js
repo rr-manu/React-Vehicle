@@ -2,19 +2,26 @@ import { StyleSheet, Text, View } from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import authService from "../../utils/auth.service";
-import { Get } from "../../utils/api";
+import { Get, Post } from "../../utils/api";
 import React from "react";
 
 export default function CarsForSale() {
-
-
   //handlePurchase
-    const handlePurchase = async (carid) => {
-        console.log(carid);
-        //post api to change car owner
-        const changeOwner_url= "http://localhost:4000/channels/mychannel/chaincodes/fabcar"
-        
-    }  
+  const handlePurchase = async (carid) => {
+    console.log(carid);
+    //post api to change car owner
+    const changeOwner_url = "channels/mychannel/chaincodes/fabcar";
+    const changeOwner_data = {
+      fcn: "changeCarOwner",
+      chaincodeName: "fabcar",
+      channelName: "mychannel",
+      args: [JSON.stringify(carid), JSON.stringify(authService.getUsername())],
+    };
+
+    const postResponse = await Post(changeOwner_url, changeOwner_data);
+    window.location.reload();
+    console.log(postResponse);
+  };
   //make a get request to get cars for sale
   const getCarsForSale = async () => {
     const sale_url =
@@ -88,31 +95,36 @@ export default function CarsForSale() {
                   <h3>{vehicle.value.model}</h3>
                   <p>{vehicle.value.color}</p>
                   <p>{vehicle.value.status}</p>
-                  <button onClick={() => handlePurchase(vehicle.key)}>Purchase</button>
+                  <button onClick={() => handlePurchase(vehicle.key)}>
+                    Purchase
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
       )}
-        <h1>Cars For Resale</h1>
-        {hasCarsForResale && (
-            <div className="outer">
-                {carsForResaleData.map((vehicle) => {
-                    return (
-                        <div className="card" key={vehicle.key}>
-                            <div className="container">
-                                <h3>{vehicle.value.make}</h3>
-                                <h3>{vehicle.value.model}</h3>
-                                <p>{vehicle.value.color}</p>
-                                <p>{vehicle.value.status}</p>
-                                <button onClick={() => handlePurchase(vehicle.key)}>Purchase</button>
-                            </div>
-                        </div>
-                    );
-                })}
+      <h1>Cars For Resale</h1>
+      {hasCarsForResale && (
+        <div className="outer">
+          {carsForResaleData.map((vehicle) => {
+            return (
+              <div className="card" key={vehicle.key}>
+                <div className="container">
+                  <h3>{vehicle.value.make}</h3>
+                  <h3>{vehicle.value.model}</h3>
+                  <p>{vehicle.value.color}</p>
+                  <p>{vehicle.value.status}</p>
+                  <button onClick={() => handlePurchase(vehicle.key)}>
+                    Purchase
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
-  )};
+      )}
+      ;
     </div>
-    );
+  );
 }
