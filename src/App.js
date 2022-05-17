@@ -11,6 +11,7 @@ import HomePage from './components/pages/HomePage'
 import './App.css'
 import authService from './utils/auth.service'
 import OwnerDashboard from './components/pages/OwnerDashboard'
+import VehicleDetails from './components/pages/VehicleDetails'
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
                     <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
                     <Route path="/home" element={ <HomePage/> } />
                     <Route path='/owner-dashboard' element={ <OwnerDashboard/> } />
+                    <Route path='/vehicle-details/:carid' element={ <VehicleDetails/> } />
                 </Routes>
             </div>
         </Router>
