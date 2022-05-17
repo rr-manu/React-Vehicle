@@ -10,6 +10,11 @@ body {
     margin: 0 auto
 }
 
+h1 {
+    margin: 50px;
+    padding: 30px;
+}
+
 .m-5-auto {
     margin: 5rem auto
 }

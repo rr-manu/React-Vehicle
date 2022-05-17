@@ -33,6 +33,14 @@ export default function SignUpPage() {
           console.log(response);
           if(org === "Owner"){
             navigate("/owner-dashboard");
+          }else if(org === "Trans"){
+            navigate("/trans-dashboard");
+          }else if(org === "Insur"){
+            navigate("/insur-dashboard");
+          }else if(org === "Manuf"){
+            navigate("/manuf-dashboard");
+          }else if(org === "Scrap"){
+            navigate("/scrap-dashboard");
           }else{
             navigate("/home");
           }

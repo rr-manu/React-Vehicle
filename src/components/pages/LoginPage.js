@@ -35,6 +35,14 @@ export default function SignInPage() {
           console.log(response);
           if(Organization === "Owner"){
             navigate("/owner-dashboard");
+          }else if(Organization === "Trans"){
+            navigate("/trans-dashboard");
+          }else if(Organization === "Insur"){
+            navigate("/insur-dashboard");
+          }else if(Organization === "Manuf"){
+            navigate("/manuf-dashboard");
+          }else if(Organization === "Scrap"){
+            navigate("/scrap-dashboard");
           }else{
             navigate("/home");
           }
