@@ -41,7 +41,7 @@ export default function Insurance() {
             fcn: "buyInsurance",
             chaincodeName: "fabcar",
             channelName: "mychannel",
-            args: [JSON.stringify(carid), JSON.stringify(insuranceid)]
+            args: [carid, insuranceid]
         };
         console.log(post_data);
         const data = await Post(post_url, post_data);

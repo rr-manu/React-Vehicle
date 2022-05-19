@@ -26,7 +26,7 @@ export default function CarsForSale() {
       fcn: "changeCarOwner",
       chaincodeName: "fabcar",
       channelName: "mychannel",
-      args: [JSON.stringify(carid), JSON.stringify(authService.getUsername())],
+      args: [carid, authService.getUsername()],
     };
 
     const postResponse = await Post(changeOwner_url, changeOwner_data);
