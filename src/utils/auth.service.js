@@ -1,7 +1,8 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-const baseURL = "http://localhost:4000/";
+//const baseURL = "http://localhost:4000/";
+const baseURL = "https://5d224b0d-c612-4aa8-8eb1-381dcf01faee.mock.pstmn.io/";
 
 //get token
 const getToken = () => {

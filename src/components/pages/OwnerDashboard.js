@@ -43,9 +43,15 @@ export default function OwnerDashboard() {
 
     return (
         <div className="text-center">
-            <h1 className="main-title home-page-title">welcome to Owner Dashboard ,{username}</h1>
+            <h1 className="main-title home-page-title">Welcome to Owner Dashboard ,{username}</h1>
+            <Link to="/cars-for-sale">
+                <button className="primary-button">Cars for Sale</button>
+            </Link>
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
+            </Link>
+            <Link to="/add-vehicle">
+                <button className="primary-button">Add Vehicle</button>
             </Link>
             <Vehicles data={vehiclesData} />
         </div>

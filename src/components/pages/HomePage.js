@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import authService from "../../utils/auth.service";
 
+import './HomePage.css'
+
 export default function HomePage() {
     return (
         <div className="text-center">

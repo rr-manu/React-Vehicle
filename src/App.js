@@ -7,10 +7,18 @@ import LoginPage from './components/pages/LoginPage'
 import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
+import CarsForSale from './components/pages/CarsForSale'
+import TransDashboard from './components/pages/TransDashboard'
+
 
 import './App.css'
 import authService from './utils/auth.service'
 import OwnerDashboard from './components/pages/OwnerDashboard'
+import VehicleDetails from './components/pages/VehicleDetails'
+import InsurDashboard from './components/pages/InsurDashboard'
+import ManufDashboard from './components/pages/ManufDashboard'
+import ScrapDashboard from './components/pages/ScrapDashboard'
+import Insurance from './components/pages/Insurance'
 
 export default function App() {
 
@@ -24,6 +32,14 @@ export default function App() {
                     <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
                     <Route path="/home" element={ <HomePage/> } />
                     <Route path='/owner-dashboard' element={ <OwnerDashboard/> } />
+                    <Route path='/vehicle-details/:carid' element={ <VehicleDetails/> } />
+                    <Route path='/cars-for-sale' element={ <CarsForSale/> } />
+                    <Route path='/insurance/:carid' element ={<Insurance/>}/>
+                    <Route path='/trans-dashboard' element={<TransDashboard/>}/>
+                    <Route path='/insur-dashboard' element={<InsurDashboard/>}/>
+                    <Route path='/manuf-dashboard' element={<ManufDashboard/>}/>
+                    <Route path='/scrap-dashboard' element={<ScrapDashboard/>}/>
+
                 </Routes>
             </div>
         </Router>

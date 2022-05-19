@@ -10,6 +10,11 @@ body {
     margin: 0 auto
 }
 
+h1 {
+    margin: 50px;
+    padding: 30px;
+}
+
 .m-5-auto {
     margin: 5rem auto
 }
@@ -74,7 +79,8 @@ body {
 
 /***    Login Page     ***/
 h2 {
-    font-weight: 300
+    font-weight: 300;
+    margin:20px;
 }
 
 form {
@@ -144,4 +150,45 @@ form span {
 /***    Home Page     ***/
 .home-page-title {
     color: #222
+}
+
+.primary-button{
+    background-color: blue;
+    /* align item top left */
+    align-items: top;
+    /* align item top left */
+    justify-content: left;
+    /* align item top left */
+    margin: 10px;
+
+    
+}
+
+table {
+    table-layout: fixed;
+    width: 70%;
+    border-collapse: collapse;
+    border: 3px solid rgb(8, 8, 8);
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    /* align table in center */
+    align-self: center;
+}
+
+th {
+    background-color: #07160779;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
 }
