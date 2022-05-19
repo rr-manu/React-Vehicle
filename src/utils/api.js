@@ -1,6 +1,7 @@
 import axios from "axios";
 
 //export const baseURL = "http://localhost:4000/";
+export const baseURL2 = "http://127.0.0.1:5000/";
 export const baseURL = "https://5d224b0d-c612-4aa8-8eb1-381dcf01faee.mock.pstmn.io/";
 
 const getToken = () => {
@@ -32,6 +33,18 @@ export const Post = async (url, data) => {
 
 export const Get = async (url) => {
   const getResponse = await axios.get(`${baseURL}${url}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+
+      Accept: "application/json",
+    },
+  });
+
+  return getResponse;
+};
+
+export const GetPrediction = async (url) => {
+  const getResponse = await axios.get(`${baseURL2}${url}`, {
     headers: {
       Authorization: `Bearer ${getToken()}`,
 

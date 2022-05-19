@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Get } from "../../utils/api";
+import { Get,GetPrediction } from "../../utils/api";
 import { Link } from "react-router-dom";
 import "./VehicleDetails.css";
 
@@ -35,7 +35,7 @@ export default function VehicleDetails() {
     const getPredictedPrice = async () => {
         const prediction_url = "predict?carID="+JSON.stringify(carid);
         console.log(prediction_url);
-        const prediction_data = await Get(prediction_url);
+        const prediction_data = await GetPrediction(prediction_url);
         console.log(prediction_data);
         return prediction_data;
     };
