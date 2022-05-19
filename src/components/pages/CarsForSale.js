@@ -4,8 +4,19 @@ import { useState, useEffect } from "react";
 import authService from "../../utils/auth.service";
 import { Get, Post } from "../../utils/api";
 import React from "react";
+import './CarsForSale.css';
+import { useNavigate } from "react-router-dom";
 
 export default function CarsForSale() {
+
+    const navigate = useNavigate();
+    //handle view details
+    const handleView = (id) => {
+        console.log("Welcome to view details");
+        console.log(id);
+        navigate(`/vehicle-details/${id}`);
+    };
+
   //handlePurchase
   const handlePurchase = async (carid) => {
     console.log(carid);
@@ -84,9 +95,12 @@ export default function CarsForSale() {
 
   return (
     <div>
+         <Link to="/owner-dashboard">
+                <button className="primary-button">Dashboard</button>
+        </Link>
       <h1>Cars For Sale</h1>
       {hasCarsForSale && (
-        <div className="outer">
+        <div className="outer-sale">
           {carsForSaleData.map((vehicle) => {
             return (
               <div className="card" key={vehicle.key}>
@@ -98,6 +112,9 @@ export default function CarsForSale() {
                   <button onClick={() => handlePurchase(vehicle.key)}>
                     Purchase
                   </button>
+                  <button onClick={() => handleView(vehicle.key)}>
+                    View Details
+                  </button>
                 </div>
               </div>
             );
@@ -106,7 +123,7 @@ export default function CarsForSale() {
       )}
       <h1>Cars For Resale</h1>
       {hasCarsForResale && (
-        <div className="outer">
+        <div className="outer-resale">
           {carsForResaleData.map((vehicle) => {
             return (
               <div className="card" key={vehicle.key}>
@@ -117,6 +134,9 @@ export default function CarsForSale() {
                   <p>{vehicle.value.status}</p>
                   <button onClick={() => handlePurchase(vehicle.key)}>
                     Purchase
+                  </button>
+                  <button onClick={() => handleView(vehicle.key)}>
+                    View Details
                   </button>
                 </div>
               </div>

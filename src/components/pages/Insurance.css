@@ -1,0 +1,32 @@
+.insurance-available {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 350px;
+    margin: 20px;
+    background-color: #f2ef13d4;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container{
+    padding: 20px;
+    /* align the contents in center */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insurance-current{
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}

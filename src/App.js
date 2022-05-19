@@ -18,6 +18,7 @@ import VehicleDetails from './components/pages/VehicleDetails'
 import InsurDashboard from './components/pages/InsurDashboard'
 import ManufDashboard from './components/pages/ManufDashboard'
 import ScrapDashboard from './components/pages/ScrapDashboard'
+import Insurance from './components/pages/Insurance'
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
                     <Route path='/owner-dashboard' element={ <OwnerDashboard/> } />
                     <Route path='/vehicle-details/:carid' element={ <VehicleDetails/> } />
                     <Route path='/cars-for-sale' element={ <CarsForSale/> } />
+                    <Route path='/insurance/:carid' element ={<Insurance/>}/>
                     <Route path='/trans-dashboard' element={<TransDashboard/>}/>
                     <Route path='/insur-dashboard' element={<InsurDashboard/>}/>
                     <Route path='/manuf-dashboard' element={<ManufDashboard/>}/>
