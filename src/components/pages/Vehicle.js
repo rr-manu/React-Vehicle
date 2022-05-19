@@ -52,16 +52,16 @@ const Vehicles=({data})=>{
         console.log("Welcome to scrap");
         console.log(id);
 
-        // const resale_data = {
-        //     fcn: "requestForScrap",
-        //     chaincodeName:"fabcar",
-        //     channelName: "mychannel",
-        //     args: [JSON.stringify(id)]
-        // }
-        // console.log(resale_data);
+        const resale_data = {
+            fcn: "requestForScrap",
+            chaincodeName:"fabcar",
+            channelName: "mychannel",
+            args: [id]
+        }
+        console.log(resale_data);
 
-        // const postResponse = await Post(url, resale_data);
-        // console.log(postResponse);
+        const postResponse = await Post(url, resale_data);
+        console.log(postResponse);
     };
 
     const handleInsurance = (id) => {

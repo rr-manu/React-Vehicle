@@ -36,9 +36,9 @@ export default function Insurance() {
     const [hasInsuranceSchemes, setHasInsuranceSchemes] = useState(false);
 
     const handlePurchase = async (insuranceid) => {
-        const post_url = "http://localhost:4000/channels/mychannel/chaincodes/fabcar";
+        const post_url = "channels/mychannel/chaincodes/fabcar";
         const post_data = {
-            fcn: "buyInsurance",
+            fcn: "purchaseInsurance",
             chaincodeName: "fabcar",
             channelName: "mychannel",
             args: [carid, insuranceid]
