@@ -24,7 +24,7 @@ const Vehicles=({data})=>{
             fcn: "requestInspection",
             chaincodeName:"fabcar",
             channelName: "mychannel",
-            args: [JSON.stringify(id)]
+            args: [id]
         }
         console.log(mainatainance_data);
 
@@ -40,7 +40,7 @@ const Vehicles=({data})=>{
             fcn: "putUpForResale",
             chaincodeName:"fabcar",
             channelName: "mychannel",
-            args: [JSON.stringify(id)]
+            args: [id]
         }
         console.log(resale_data);
 

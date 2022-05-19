@@ -33,7 +33,7 @@ export default function VehicleDetails() {
 
   //make a get request to get predicted price of vehicle
     const getPredictedPrice = async () => {
-        const prediction_url = "?carID="+JSON.stringify(carid);
+        const prediction_url = "predict?carID="+JSON.stringify(carid);
         console.log(prediction_url);
         const prediction_data = await Get(prediction_url);
         console.log(prediction_data);
