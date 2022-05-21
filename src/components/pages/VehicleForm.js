@@ -139,21 +139,21 @@ export default function VehicleForm() {
         setSubmitting(true);
         
         //print contents of formData
-        console.log(JSON.stringify(formData));
-
+        console.log(formData);
+        const jsonStr = JSON.stringify(formData);
+        console.log(jsonStr);
+        console.log(JSON.parse(jsonStr));
         //send post request to server
         const post_url = "channels/mychannel/chaincodes/fabcar";
         const post_data = {
-            fcn: "purchaseInsurance",
+            fcn: "createCar",
             chaincodeName: "fabcar",
             channelName: "mychannel",
-            args: [formData]
+            args: [jsonStr]
         };
         console.log(post_data);
         const data = Post(post_url, post_data);
         console.log(data);
-        return data;
-
 
         setTimeout(() => {
             setSubmitting(false);
