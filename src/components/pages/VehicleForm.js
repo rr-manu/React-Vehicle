@@ -7,9 +7,6 @@ import './VehicleForm.css'
 export default function VehicleForm() {
 
     const username = authService.getUsername();
-    var today = new Date();
-    var yyyy = today.getFullYear();
-
 
     let makes = [
         { label: "Ford", value: "Ford" },
@@ -239,7 +236,7 @@ export default function VehicleForm() {
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_year">Vehicle Year of Manufacture</label>
-                <input type="number" className="form-control" name="year" placeholder="Enter Year of Manufacture"  value ={yyyy} onChange={handleChange}/>
+                <input type="number" className="form-control" name="year" placeholder="Enter Year of Manufacture" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_avg_cost_price">Vehicle Avg Cost Price</label>
@@ -251,11 +248,11 @@ export default function VehicleForm() {
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_ownerLevel">Vehicle Owner Level</label>
-                <input type="number" className="form-control" name="ownerLevel" placeholder="Enter Owner Level"  value ="0" onChange={handleChange}/>
+                <input type="number" className="form-control" name="ownerLevel" placeholder="Enter Owner Level"  onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Registration Date</label>
-                <input type="text" className="form-control" name="year" placeholder="Enter Vehicle registration date" onChange={handleChange}/>
+                <input type="text" className="form-control" name="registrationDate" placeholder="Enter Vehicle registration date" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Registration Verified</label>
