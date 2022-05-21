@@ -127,7 +127,7 @@ export default function VehicleForm() {
     const [submitting, setSubmitting] = useState(false);
 
     //handle submit
-    const handleSubmit = async(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setFormData({
             name: "owner",
@@ -143,7 +143,6 @@ export default function VehicleForm() {
         
         //print contents of formData
         console.log(JSON.stringify(formData));
-        console.log(JSON.parse(formData));
 
         //send post request to server
         const post_url = "channels/mychannel/chaincodes/fabcar";
@@ -154,7 +153,7 @@ export default function VehicleForm() {
             args: [formData]
         };
         console.log(post_data);
-        const data = await Post(post_url, post_data);
+        const data = Post(post_url, post_data);
         console.log(data);
         return data;
 
