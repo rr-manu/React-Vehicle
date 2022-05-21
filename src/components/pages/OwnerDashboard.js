@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import authService from "../../utils/auth.service";
 import { Get } from "../../utils/api";
 import Vehicles from "./Vehicle";
+import { useNavigate } from "react-router-dom";
 
 export default function OwnerDashboard() {
 
     const username = authService.getUsername();
     const [hasVehicles, setHasVehicles] = useState(false);
+
+
   
     //make a get request to get vehicle list
     const getVehicles = async () => {
@@ -50,7 +53,7 @@ export default function OwnerDashboard() {
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
             </Link>
-            <Link to="/add-vehicle">
+            <Link to="/vehicle-form">
                 <button className="primary-button">Add Vehicle</button>
             </Link>
             <Vehicles data={vehiclesData} />
