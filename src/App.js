@@ -19,6 +19,7 @@ import InsurDashboard from './components/pages/InsurDashboard'
 import ManufDashboard from './components/pages/ManufDashboard'
 import ScrapDashboard from './components/pages/ScrapDashboard'
 import Insurance from './components/pages/Insurance'
+import VehicleForm from './components/pages/VehicleForm'
 
 export default function App() {
 
@@ -38,6 +39,7 @@ export default function App() {
                     <Route path='/trans-dashboard' element={<TransDashboard/>}/>
                     <Route path='/insur-dashboard' element={<InsurDashboard/>}/>
                     <Route path='/manuf-dashboard' element={<ManufDashboard/>}/>
+                    <Route path='/vehicle-form' element={<VehicleForm/>}/>
                     <Route path='/scrap-dashboard' element={<ScrapDashboard/>}/>
 
                 </Routes>
