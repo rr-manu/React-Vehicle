@@ -39,7 +39,8 @@ export default function ManufDashboard(){
 
     return(
         <div className='text-center'>
-            <h1>Welcome to Manufacturer Dashboard, {username}</h1>
+             <h1 className="title">Manufacturer Dashboard</h1>
+            <h1 className="sub-title">Welcome {username}</h1>
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
             </Link>

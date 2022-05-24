@@ -46,7 +46,8 @@ export default function OwnerDashboard() {
 
     return (
         <div className="text-center">
-            <h1 className="main-title home-page-title">Welcome to Owner Dashboard ,{username}</h1>
+            <h1 className="title">Owner Dashboard</h1>
+            <h1 className="sub-title">Welcome {username}</h1>
             <Link to="/cars-for-sale">
                 <button className="primary-button">Cars for Sale</button>
             </Link>

@@ -78,7 +78,8 @@ export default function InsurDashboard(){
     
     return(
         <div className='text-center'>
-            <h1>Welcome to Insurance Company Dashboard, {username}</h1>
+            <h1 className='title'>Insurance Company Dashboard</h1>
+            <h1 className='sub-title'>Welcome {username}</h1>
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
             </Link>
@@ -87,15 +88,18 @@ export default function InsurDashboard(){
             </Link>
             <h2>Insurance schemes provided by {username}</h2>
             {/* Display insurance schemes if hasInsuranceData */}
-            {hasInsuranceSchemes && <div>
+            {hasInsuranceSchemes && <div className='outer-main'>
                 {insuranceSchemes.map(insuranceScheme => {
-                    return <div>
-                        <h3>{insuranceScheme.value.name}</h3>
-                        <p>{insuranceScheme.value.agency}</p>
-                        <p>{insuranceScheme.value.coverage}</p>
-                        <p>{insuranceScheme.value.validity}</p>
-                        <p>{insuranceScheme.value.cost}</p>
-                        <button className="primary-button" onClick={()=>handleDelete(insuranceScheme.key)}>Remove</button> 
+                    return <div className='card-main'>
+                        <div className='container-main'>
+                        <h3>{insuranceScheme.key}</h3>
+                        <p>Name : {insuranceScheme.value.name}</p>
+                        <p>Agency : {insuranceScheme.value.agency}</p>
+                        <p>Coverage : {insuranceScheme.value.coverage}</p>
+                        <p>Validity : {insuranceScheme.value.validity} year</p>
+                        <p>Cost : Rs.{insuranceScheme.value.cost}/-</p>
+                        <button className="secondary-button" onClick={()=>handleDelete(insuranceScheme.key)}>Remove</button> 
+                        </div>
                     </div>
                 }
                 )}
@@ -104,15 +108,17 @@ export default function InsurDashboard(){
             {!hasInsuranceSchemes && <h3>No insurance schemes found</h3>}
             <h2>Insurance Claim Requests Recieved</h2>
             {/* Display insurance claim requests if hasInsuranceClaimRequests */}
-            {hasClaimRequests && <div>
+            {hasClaimRequests && <div className='outer-main'>
                 {claimRequests.map(claimRequest => {
                     return(
-                        <div>
+                        <div className='card-main'>
+                            <div className='container-main'>
                             <h3>{claimRequest.value.model}</h3>
                             <p>{claimRequest.value.color}</p>
 
-                            <button className="primary-button">Approve Claim</button>
-                            <button className="primary-button">Decline Claim</button>
+                            <button className="secondary-button">Approve Claim</button>
+                            <button className="secondary-button">Decline Claim</button>
+                            </div>
                         </div>
                     )
                 }
