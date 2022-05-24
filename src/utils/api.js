@@ -1,8 +1,8 @@
 import axios from "axios";
 
-//export const baseURL = "http://localhost:4000/";
+export const baseURL = "http://localhost:4000/";
 export const baseURL2 = "http://127.0.0.1:5000/";
-export const baseURL = "https://5d224b0d-c612-4aa8-8eb1-381dcf01faee.mock.pstmn.io/";
+//export const baseURL = "https://5d224b0d-c612-4aa8-8eb1-381dcf01faee.mock.pstmn.io/";
 
 const getToken = () => {
   return localStorage.getItem("token");

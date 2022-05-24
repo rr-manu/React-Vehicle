@@ -49,6 +49,20 @@ export default function Insurance() {
         return data;
     };
 
+    const handleRaiseClaim= async() => {
+        const post_url = "channels/mychannel/chaincodes/fabcar";
+        const post_data = {
+            fcn: "raiseClaimInsurance",
+            chaincodeName: "fabcar",
+            channelName: "mychannel",
+            args: [carid]
+        };
+        console.log(post_data);
+        const data = await Post(post_url, post_data);
+        console.log(data);
+        return data;
+    }
+
     useEffect(() => {
         const data = getVehicle()
         .then(data => {
@@ -90,6 +104,7 @@ export default function Insurance() {
                 <p>Insurance ID: {vehicleData.insuranceID}</p>
                 <p>Insurance Expiry: {vehicleData.insuranceExpiry}</p>
                 <p>Insurance Verified: {vehicleData.isInsuranceVerified.toString()} </p>
+                <button onClick={() => {handleRaiseClaim()}}>Raise Claim Request</button>
                 </div>
             }
             {

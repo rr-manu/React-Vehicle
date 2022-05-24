@@ -71,6 +71,10 @@ export default function InsuranceForm() {
 
         <div className='form-container'>
         <form onSubmit={handleSubmit}>
+        <div className='form-group'>
+                <label htmlFor='name'>Insurance ID</label>
+                <input type='text' name='insuranceID' id='insuranceID' onChange={handleChange}/>
+            </div>
             <div className='form-group'>
                 <label htmlFor='name'>Insurance Name</label>
                 <input type='text' name='name' id='name' onChange={handleChange}/>

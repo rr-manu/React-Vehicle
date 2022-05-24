@@ -16,7 +16,7 @@ export default function InsurDashboard(){
     //make a get request to get all insurance schemes owned by the company
     const getInsuranceSchemes = async () => {
             
-            const url = "channels/mychannel/chaincodes/fabcar?args=["+JSON.stringify(username)+"]&fcn=queryInsuranceByCompany"
+            const url = "channels/mychannel/chaincodes/fabcar?args=["+JSON.stringify(username)+"]&fcn=queryInsuranceByAgency"
             console.log(url);
             const data = await Get(url);
             console.log(data);
@@ -24,7 +24,7 @@ export default function InsurDashboard(){
     }
 
     const getInsuranceClaimRequests = async () => {
-        const url = "channels/mychannel/chaincodes/fabcar?args=["+JSON.stringify(username)+"]&fcn=queryInsuranceClaimRequests"
+        const url = "channels/mychannel/chaincodes/fabcar?args=["+JSON.stringify(username)+"]&fcn=queryInsuranceClaimRequestsByAgency"
         console.log(url);
         const data = await Get(url);
         console.log(data);
@@ -32,11 +32,16 @@ export default function InsurDashboard(){
     }
 
     const handleDelete = async (id) => {
-        const url = "channels/mychannel/chaincodes/fabcar?args=["+JSON.stringify(id)+"]&fcn=deleteInsurance"
-        console.log(url);
-        const data = await Post(url);
+        const post_url = "channels/mychannel/chaincodes/fabcar";
+        const post_data = {
+            fcn: "deleteInsurance",
+            chaincodeName: "fabcar",
+            channelName: "mychannel",
+            args: [id]
+        };
+        console.log(post_data);
+        const data = Post(post_url, post_data);
         console.log(data);
-        return data;
     }
 
     useEffect(() => {
@@ -85,11 +90,12 @@ export default function InsurDashboard(){
             {hasInsuranceSchemes && <div>
                 {insuranceSchemes.map(insuranceScheme => {
                     return <div>
-                        {/* <h3>{insuranceScheme.insuranceName}</h3>
-                        <p>{insuranceScheme.insuranceDescription}</p>
-                        <p>{insuranceScheme.insurancePrice}</p>
-                        <p>{insuranceScheme.insuranceDuration}</p>
-                        <button className="primary-button" onClick={()=>handleDelete(insuranceScheme.key)}>Remove</button> */}
+                        <h3>{insuranceScheme.value.name}</h3>
+                        <p>{insuranceScheme.value.agency}</p>
+                        <p>{insuranceScheme.value.coverage}</p>
+                        <p>{insuranceScheme.value.validity}</p>
+                        <p>{insuranceScheme.value.cost}</p>
+                        <button className="primary-button" onClick={()=>handleDelete(insuranceScheme.key)}>Remove</button> 
                     </div>
                 }
                 )}
@@ -102,8 +108,11 @@ export default function InsurDashboard(){
                 {claimRequests.map(claimRequest => {
                     return(
                         <div>
-                            <h3>{claimRequest}</h3>
-                            <button className="primary-button">ApproveClaim</button>
+                            <h3>{claimRequest.value.model}</h3>
+                            <p>{claimRequest.value.color}</p>
+
+                            <button className="primary-button">Approve Claim</button>
+                            <button className="primary-button">Decline Claim</button>
                         </div>
                     )
                 }
