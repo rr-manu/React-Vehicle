@@ -1,4 +1,5 @@
 import React,{useState,useReducer} from 'react'
+import { Link } from 'react-router-dom';
 import { Post } from '../../utils/api';
 import authService from "../../utils/auth.service";
 import './VehicleForm.css'
@@ -163,8 +164,11 @@ export default function VehicleForm() {
     };
 
   return (
-    <div>
+    <div className='text-center'>
         <h1>Vehicle Form</h1>
+        <Link to='/owner-dashboard'>
+           <button className='primary-button'>Dashboard</button>
+        </Link>
         {submitting &&
        <div>
          You are submitting the following:
@@ -180,79 +184,79 @@ export default function VehicleForm() {
             {/* Create a from to take vehicle_name , make, mileage,color, fuelType, transmissionType, seats, maxPower,engine,avg_cost_price */}
             <div className="form-group">
                 <label htmlFor="vehicle_chassesNo">Vehicle Chasses No</label>
-                <input type="text" className="form-control" name="carNumber" placeholder="Enter Vehicle Chasses Number" onChange={handleChange}/>
+                <input required type="text" className="form-control" name="carNumber" placeholder="Enter Vehicle Chasses Number" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_model">Vehicle Model</label>
-                <select  className="form-control" name="model" placeholder="Select Vehicle Model" onChange={handleChange}>
+                <select required className="form-control" name="model" placeholder="Select Vehicle Model" onChange={handleChange}>
                 <option value="">--Please choose an option--</option>
                 {models.map((model) => <option value={model.value}>{model.label}</option>)}
                 </select>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_make">Vehicle Make</label>
-                <select  className="form-control" name="make" placeholder="Select Vehicle Make" onChange={handleChange}>
+                <select required className="form-control" name="make" placeholder="Select Vehicle Make" onChange={handleChange}>
                 <option value="">--Please choose an option--</option>
                 {makes.map((make) => <option value={make.value}>{make.label}</option>)}
                 </select>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_color">Vehicle Color</label>
-                <input type="text" className="form-control" name="color" placeholder="Enter Vehicle Color" onChange={handleChange}/>
+                <input required type="text" className="form-control" name="color" placeholder="Enter Vehicle Color" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_seats">Vehicle Seats</label>
-                <input type="number" className="form-control" name="seats" placeholder="Enter Vehicle Seats" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="seats" placeholder="Enter Vehicle Seats" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_fuelType">Vehicle Fuel Type</label>
-                <select  className="form-control" name="fuelType" placeholder="Select Vehicle Fuel Type" onChange={handleChange}>
+                <select required className="form-control" name="fuelType" placeholder="Select Vehicle Fuel Type" onChange={handleChange}>
                 <option value="">--Please choose an option--</option>
                 {fuelTypes.map((fuelType) => <option value={fuelType.value}>{fuelType.label}</option>)}
                 </select>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_transmissionType">Vehicle Transmission Type</label>
-                <select  className="form-control" name="transmissionType" placeholder="Select Vehicle Transmission Type" onChange={handleChange}>
+                <select required  className="form-control" name="transmissionType" placeholder="Select Vehicle Transmission Type" onChange={handleChange}>
                 <option value="">--Please choose an option--</option>
                 {transmissionTypes.map((transmissionType) => <option value={transmissionType.value}>{transmissionType.label}</option>)}
                 </select>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_engine">Vehicle Engine</label>
-                <input type="number" className="form-control" name="engine" placeholder="Enter Vehicle Engine" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="engine" placeholder="Enter Vehicle Engine" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_maxPower">Vehicle Max Power</label>
-                <input type="number" className="form-control" name="maxPower" placeholder="Enter Vehicle Max Power" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="maxPower" placeholder="Enter Vehicle Max Power" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_mileage">Vehicle Mileage</label>
-                <input type="number" className="form-control" name="mileage" placeholder="Enter Vehicle Mileage" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="mileage" placeholder="Enter Vehicle Mileage" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_kmDriven">Kilo Meter Driven</label>
-                <input type="number" className="form-control" name="kmDriven" placeholder="Enter Kilo Meter Driven" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="kmDriven" placeholder="Enter Kilo Meter Driven" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_year">Vehicle Year of Manufacture</label>
-                <input type="number" className="form-control" name="year" placeholder="Enter Year of Manufacture" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="year" placeholder="Enter Year of Manufacture" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_avg_cost_price">Vehicle Avg Cost Price</label>
-                <input type="number" className="form-control" name="avg_cost_price" placeholder="Enter Vehicle Avg Cost Price" onChange={handleChange}/>
+                <input required type="number" className="form-control" name="avg_cost_price" placeholder="Enter Vehicle Avg Cost Price" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_owner">Vehicle Owner</label>
-                <input disabled type="text" className="form-control" name="owner" placeholder="Enter Year of Manufacture"  value ={username} onChange={handleChange }/>
+                <input required disabled type="text" className="form-control" name="owner" placeholder="Enter Year of Manufacture"  value ={username} onChange={handleChange }/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_ownerLevel">Vehicle Owner Level</label>
-                <input type="number" className="form-control" name="ownerLevel" placeholder="Enter Owner Level"  onChange={handleChange}/>
+                <input required type="number" className="form-control" name="ownerLevel" placeholder="Enter Owner Level"  onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Registration Date</label>
-                <input type="text" className="form-control" name="registrationDate" placeholder="Enter Vehicle registration date" onChange={handleChange}/>
+                <input required type="text" className="form-control" name="registrationDate" placeholder="Enter Vehicle registration date" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Registration Verified</label>
@@ -260,11 +264,11 @@ export default function VehicleForm() {
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle InsuranceID</label>
-                <input type="text" className="form-control" name="insuranceID" placeholder="InsuranceID"   onChange={handleChange}/>
+                <input required type="text" className="form-control" name="insuranceID" placeholder="InsuranceID"   onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Insurance Expiry Date</label>
-                <input type="text" className="form-control" name="insuranceExpiry" placeholder="Insurance Expiry Date"  onChange={handleChange}/>
+                <input required type="text" className="form-control" name="insuranceExpiry" placeholder="Insurance Expiry Date"  onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Raise Claim</label>
@@ -280,13 +284,13 @@ export default function VehicleForm() {
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Health Status</label>
-                <input type="text" className="form-control" name="healthStatus" placeholder="good/poor" onChange={handleChange}/>
+                <input required type="text" className="form-control" name="healthStatus" placeholder="good/poor" onChange={handleChange}/>
             </div>
             <div className="form-group">
                 <label htmlFor="vehicle_registrationDate">Vehicle Status</label>
                 <input disabled type="text" className="form-control" name="status"   value ="Vehicle-Manufactured" onChange={handleChange}/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className='secondary-button'>Submit</button>
         </form>
         </div>
 

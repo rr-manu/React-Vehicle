@@ -1,4 +1,5 @@
 import React,{useState,useReducer} from 'react'
+import { Link } from 'react-router-dom';
 import { Post } from '../../utils/api';
 import authService from "../../utils/auth.service";
 
@@ -58,6 +59,9 @@ export default function InsuranceForm() {
   return (
     <div className='text-center'>
         <h1>Insurance Form</h1>
+        <Link to="/insur-dashboard">
+        <button className="primary-button" >Dashboard</button>
+        </Link>
         {submitting &&
        <div>
          You are submitting the following:
@@ -95,7 +99,7 @@ export default function InsuranceForm() {
                 <label htmlFor='company'>Insurance Validity</label>
                 <input type='number' name='validity' id='validity' onChange={handleChange}/>
             </div>
-            <button type='submit' className='btn btn-primary'>Submit</button>
+            <button type='submit' className='secondary-button'>Submit</button>
 
         </form>
         </div>

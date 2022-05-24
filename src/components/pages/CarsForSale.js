@@ -94,7 +94,7 @@ export default function CarsForSale() {
   }, []);
 
   return (
-    <div>
+    <div className="text-center">
          <Link to="/owner-dashboard">
                 <button className="primary-button">Dashboard</button>
         </Link>
@@ -103,16 +103,16 @@ export default function CarsForSale() {
         <div className="outer-sale">
           {carsForSaleData.map((vehicle) => {
             return (
-              <div className="card" key={vehicle.key}>
-                <div className="container">
+              <div className="card-main" key={vehicle.key}>
+                <div className="container-main">
                   <h3>{vehicle.value.make}</h3>
                   <h3>{vehicle.value.model}</h3>
                   <p>{vehicle.value.color}</p>
                   <p>{vehicle.value.status}</p>
-                  <button onClick={() => handlePurchase(vehicle.key)}>
+                  <button className='secondary-button' onClick={() => handlePurchase(vehicle.key)}>
                     Purchase
                   </button>
-                  <button onClick={() => handleView(vehicle.key)}>
+                  <button className='secondary-button' onClick={() => handleView(vehicle.key)}>
                     View Details
                   </button>
                 </div>
@@ -126,16 +126,16 @@ export default function CarsForSale() {
         <div className="outer-resale">
           {carsForResaleData.map((vehicle) => {
             return (
-              <div className="card" key={vehicle.key}>
-                <div className="container">
+              <div className="card-main" key={vehicle.key}>
+                <div className="container-main">
                   <h3>{vehicle.value.make}</h3>
                   <h3>{vehicle.value.model}</h3>
                   <p>{vehicle.value.color}</p>
                   <p>{vehicle.value.status}</p>
-                  <button onClick={() => handlePurchase(vehicle.key)}>
+                  <button className='secondary-button' onClick={() => handlePurchase(vehicle.key)}>
                     Purchase
                   </button>
-                  <button onClick={() => handleView(vehicle.key)}>
+                  <button className='secondary-button' onClick={() => handleView(vehicle.key)}>
                     View Details
                   </button>
                 </div>

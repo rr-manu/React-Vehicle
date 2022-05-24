@@ -19,6 +19,7 @@ const Vehicles=({data})=>{
     };
 
     const handleMaintainance = async(id) => {
+        alert("Maintainance request is being sent");
         console.log("Welcome to maintainance");
         console.log(id);
 
@@ -36,6 +37,7 @@ const Vehicles=({data})=>{
     };
 
     const handleSell = async(id) => {
+        alert("Vehicle is being put up for resale")
         console.log("Welcome to sell");
         console.log(id);
 
@@ -52,6 +54,7 @@ const Vehicles=({data})=>{
     };
 
     const handleScrap = async(id) => {
+        alert("Vehicle is being sent for scrapping")
         console.log("Welcome to scrap");
         console.log(id);
 
@@ -76,6 +79,17 @@ const Vehicles=({data})=>{
     const handleDelete = async(id) => {
         console.log("Welcome to delete");
         console.log(id);
+
+        const resale_data = {
+            fcn: "deleteCar",
+            chaincodeName:"fabcar",
+            channelName: "mychannel",
+            args: [id]
+        }
+        console.log(resale_data);
+
+        const postResponse = await Post(url, resale_data);
+        console.log(postResponse);
     }
 
     useEffect(() => {
@@ -89,12 +103,12 @@ const Vehicles=({data})=>{
         <div>
             {isOwner && <div>
             <h1>Vehicles Owned</h1>
-            <div className='outer' >
+            <div className='outer-main' >
                 {data.map(vehicle=>{
                     return(
-                        <div className ="card" key={vehicle.key} >
+                        <div className ="card-main" key={vehicle.key} >
         
-                            <div className ="container">
+                            <div className ="container-main">
                                 <h3>{vehicle.value.make}</h3>
                                 <h3>{vehicle.value.model}</h3>
                                 <p>{vehicle.value.color}</p>
@@ -102,11 +116,11 @@ const Vehicles=({data})=>{
                            
                             </div>
                             <div className="buttons">
-                                <button onClick={() => handleClick(vehicle.key)} >View Details</button>
-                                <button onClick={() => handleMaintainance(vehicle.key)} >Request Maintainance</button>
-                                <button onClick={() => handleInsurance(vehicle.key)} >View/Renew Insurance</button>
-                                <button onClick={() => handleSell(vehicle.key)} >Sell Car</button>
-                                <button onClick={() => handleScrap(vehicle.key)} >Scrap Car</button>
+                                <button className='secondary-button' onClick={() => handleClick(vehicle.key)} >View Details</button>
+                                <button className='secondary-button' onClick={() => handleMaintainance(vehicle.key)} >Request Maintainance</button>
+                                <button className='secondary-button' onClick={() => handleInsurance(vehicle.key)} >View/Renew Insurance</button>
+                                <button className='secondary-button' onClick={() => handleSell(vehicle.key)} >Sell Car</button>
+                                <button className='secondary-button' onClick={() => handleScrap(vehicle.key)} >Scrap Car</button>
                                
                             </div>
             

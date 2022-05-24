@@ -19,18 +19,73 @@ h1 {
     margin: 5rem auto
 }
 
+
+
 .primary-button {
-    margin-top: 5rem;
-    margin-right: 1rem;
-    padding: .6rem;
-    width: 12rem;
-    background: #222;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    transition: all .5s;
-    cursor: pointer;
-    text-transform: capitalize
+  background: blue;
+  border-radius: 999px;
+  box-shadow: blue 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  margin: 10px;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  word-break: break-word;
+  border: 0;
+}
+
+
+/* CSS */
+.secondary-button {
+  background-color: #e1ecf4;
+  border-radius: 999px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: blue;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 5px;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+  background-color: rgba(13, 13, 255, 0.468);
+  color: blue;
+}
+
+.button-8:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-8:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
 }
 
 /***    Landing Page     ***/
@@ -42,10 +97,13 @@ h1 {
 
 
 .title {
-    padding-top: 10rem;
-    font-size: 5rem;
-    font-family: 'Fascinate', cursive;
-    text-transform: uppercase
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 60px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: center;
 }
 
 .sub-title {
@@ -89,7 +147,9 @@ form {
     border: 1px solid #ddd;
     border-radius: 2px;
     padding: 2rem;
-    margin: 2rem 0 1rem 0
+    margin: 2rem 0 1rem 0;
+    width: 400px;
+
 }
 
 form label {
@@ -152,17 +212,6 @@ form span {
     color: #222
 }
 
-.primary-button{
-    background-color: blue;
-    /* align item top left */
-    align-items: top;
-    /* align item top left */
-    justify-content: left;
-    /* align item top left */
-    margin: 10px;
-
-    
-}
 
 table {
     table-layout: fixed;
@@ -191,4 +240,31 @@ tr {
 td {
     padding: 10px;
     text-align: center;
+}
+
+
+
+
+.outer-main{
+    flex:1;
+    overflow: scroll;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-main {
+    width: 300px;    
+    margin : 20px;
+    background-color: rgba(255, 144, 33, 0.74);
+    color: black;
+    border-radius: 20px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container-main{
+    padding: 0px;
+    margin: 10px;
 }
