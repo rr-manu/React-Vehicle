@@ -90,7 +90,7 @@ export default function Insurance() {
     }, []);
 
   return (
-    <div>
+    <div className='text-center'>
             <Link to="/owner-dashboard">
                 <button className="primary-button">Dashboard</button>
         </Link>
@@ -104,7 +104,7 @@ export default function Insurance() {
                 <p>Insurance ID: {vehicleData.insuranceID}</p>
                 <p>Insurance Expiry: {vehicleData.insuranceExpiry}</p>
                 <p>Insurance Verified: {vehicleData.isInsuranceVerified.toString()} </p>
-                <button onClick={() => {handleRaiseClaim()}}>Raise Claim Request</button>
+                <button className='secondary-button' onClick={() => {handleRaiseClaim()}}>Raise Claim Request</button>
                 </div>
             }
             {
@@ -115,18 +115,18 @@ export default function Insurance() {
         <div>
             <h2>Available Insurance Plans</h2>
             {/* Display details of available insurance plans */}
-            <div className='insurance-available'>
+            <div className='outer-main'>
             {hasInsuranceSchemes && insuranceSchemes.map(insuranceScheme => {
                 return(
-                    <div className ="card" key={insuranceScheme.key} >
-                        <div className ="container">
+                    <div className ="card-main" key={insuranceScheme.key} >
+                        <div className ="container-main">
                             <h5>Insurance ID: {insuranceScheme.key}</h5>
                             <p>Insurance Name: {insuranceScheme.value.name}</p>
                             <p>Insurance Agency: {insuranceScheme.value.agency}</p>
                             <p>Insurance Price: {insuranceScheme.value.cost}</p>
                             <p>Insurance Coverage: {insuranceScheme.value.coverage}</p>
                             <p>Insurance Validity: {insuranceScheme.value.validity} year</p>
-                            <button onClick={() => {handlePurchase(insuranceScheme.key)}}>Purchase</button>
+                            <button className='secondary-button' onClick={() => {handlePurchase(insuranceScheme.key)}}>Purchase</button>
                         </div>
                     </div>
                 )

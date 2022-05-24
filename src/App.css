@@ -28,7 +28,6 @@ h1 {
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -40,7 +39,6 @@ h1 {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 200px;
-  word-break: break-word;
   border: 0;
 }
 
