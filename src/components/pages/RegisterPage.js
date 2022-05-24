@@ -7,39 +7,39 @@ import authService from "../../utils/auth.service";
 
 export default function SignUpPage() {
   const [firstName, setFirstName] = useState();
-  const [org, setOrg] = useState();
+  const [organization, setOrganization] = useState();
 
   useEffect(() => {
-    console.log(org);
-  }, [org]);
+    console.log(organization);
+  }, [organization]);
 
   const navigate = useNavigate();
 
-  const register = async () => {
-    const data = await Post("users", {
-      username: firstName,
-      orgName: org,
-    });
+  // const register = async () => {
+  //   const data = await Post("users", {
+  //     username: firstName,
+  //     orgName: org,
+  //   });
 
-    console.log(data);
-    localStorage.setItem("token", data.data.token);
-  };
+  //   console.log(data);
+  //   localStorage.setItem("token", data.data.token);
+  // };
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await authService.register(firstName, org).then(
+      await authService.register(firstName, organization).then(
         (response) => {
           console.log(response);
-          if(org === "Owner"){
+          if(organization === "Owner"){
             navigate("/owner-dashboard");
-          }else if(org === "Trans"){
+          }else if(organization === "Trans"){
             navigate("/trans-dashboard");
-          }else if(org === "Insur"){
+          }else if(organization === "Insur"){
             navigate("/insur-dashboard");
-          }else if(org === "Manuf"){
+          }else if(organization === "Manuf"){
             navigate("/manuf-dashboard");
-          }else if(org === "Scrap"){
+          }else if(organization === "Scrap"){
             navigate("/scrap-dashboard");
           }else{
             navigate("/home");
@@ -66,16 +66,17 @@ export default function SignUpPage() {
           <input
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
-            name="first_name"
+            name="firstName"
             required
           />
         </p>
         <p>
-          <label for="Organization">Organization:</label>
+          <label for="organization">Organization:</label>
           <select
-            onChange={(e) => setOrg(e.target.value)}
-            name="Organization"
-            id="Organization"
+            onChange={(e) => setOrganization(e.target.value)}
+            name="organization"
+            id="organization"
+            required
           >
             <option value="blank">Select one</option>
             <option value="Trans">Transport Authority</option>

@@ -7,41 +7,42 @@ import { Post } from "../../utils/api";
 import authService from "../../utils/auth.service";
 
 export default function SignInPage() {
-  const [first_name, setFirstName] = useState();
-  const [Organization, setOrganization] = useState();
+  const [firstName, setFirstName] = useState();
+  const [organization, setOrganization] = useState();
 
 
   useEffect(() => {
-    console.log(Organization);
-  }, [Organization]);
+    console.log(organization);
+  }, [organization]);
 
   const navigate = useNavigate();
 
 
-  const login = async () => {
-    const data = await Post("users/login", {
-      username: first_name,
-      orgName: Organization,
-    });
-    console.log(data);
-    localStorage.setItem("token", data.data.token);
-  };
+  // const login = async () => {
+  //   const data = await Post("users/login", {
+  //     username: first_name,
+  //     orgName: Organization,
+  //   });
+  //   console.log(data);
+  //   localStorage.setItem("token", data.data.token);
+  // };
 
-  const handleLogin = async (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
     try {
-      await  authService.login(first_name, Organization).then(
+        await authService.login(firstName, organization).then(
         (response) => {
           console.log(response);
-          if(Organization === "Owner"){
+
+          if(organization === "Owner"){
             navigate("/owner-dashboard");
-          }else if(Organization === "Trans"){
+          }else if(organization === "Trans"){
             navigate("/trans-dashboard");
-          }else if(Organization === "Insur"){
+          }else if(organization === "Insur"){
             navigate("/insur-dashboard");
-          }else if(Organization === "Manuf"){
+          }else if(organization === "Manuf"){
             navigate("/manuf-dashboard");
-          }else if(Organization === "Scrap"){
+          }else if(organization === "Scrap"){
             navigate("/scrap-dashboard");
           }else{
             navigate("/home");
@@ -69,16 +70,16 @@ export default function SignInPage() {
           <br />
           <input
             type="text"
-            name="first_name"
+            name="firstName"
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </p>
         <p>
-          <label for="Organization">Organization: </label>
+          <label for="organization">Organization: </label>
           <select
-            name="Organization"
-            id="Organization"
+            name="organization"
+            id="organization"
             onChange={(e) => setOrganization(e.target.value)}
             required
           >

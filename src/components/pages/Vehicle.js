@@ -1,13 +1,16 @@
-import React from 'react';
+import React ,{useState,useEffect} from 'react';
 import './Vehicle.css'
 import { useNavigate } from "react-router-dom";
 import { Post } from "../../utils/api";
+import authService from '../../utils/auth.service';
 
 
 const Vehicles=({data})=>{
 
     const navigate = useNavigate();
     const url = "channels/mychannel/chaincodes/fabcar"
+    const orgName = authService.getOrgName();
+    const [isOwner, setIsOwner] = useState(false);
 
     const handleClick = (id) => {
         console.log("Welcome to view details");
@@ -70,32 +73,73 @@ const Vehicles=({data})=>{
         navigate(`/insurance/${id}`);
     };
 
+    const handleDelete = async(id) => {
+        console.log("Welcome to delete");
+        console.log(id);
+    }
 
-
+    useEffect(() => {
+        console.log("The organization is: "+ orgName);
+        if(orgName === "Owner"){
+            setIsOwner(true);
+        }
+    }, [])
          
     return(
         <div>
+            {isOwner && <div>
             <h1>Vehicles Owned</h1>
             <div className='outer' >
                 {data.map(vehicle=>{
                     return(
                         <div className ="card" key={vehicle.key} >
-                        <div className ="container">
-                            <h3>{vehicle.value.make}</h3>
-                            <h3>{vehicle.value.model}</h3>
-                            <p>{vehicle.value.color}</p>
-                            <p>{vehicle.value.status}</p>
+        
+                            <div className ="container">
+                                <h3>{vehicle.value.make}</h3>
+                                <h3>{vehicle.value.model}</h3>
+                                <p>{vehicle.value.color}</p>
+                                <p>{vehicle.value.status}</p>
                            
+                            </div>
+                            <div className="buttons">
+                                <button onClick={() => handleClick(vehicle.key)} >View Details</button>
+                                <button onClick={() => handleMaintainance(vehicle.key)} >Request Maintainance</button>
+                                <button onClick={() => handleInsurance(vehicle.key)} >View/Renew Insurance</button>
+                                <button onClick={() => handleSell(vehicle.key)} >Sell Car</button>
+                                <button onClick={() => handleScrap(vehicle.key)} >Scrap Car</button>
+                               
+                            </div>
+            
                         </div>
-                            <button onClick={() => handleClick(vehicle.key)} >View Details</button>
-                            <button onClick={() => handleMaintainance(vehicle.key)} >Request Maintainance</button>
-                            <button onClick={() => handleInsurance(vehicle.key)} >View/Renew Insurance</button>
-                            <button onClick={() => handleSell(vehicle.key)} >Sell Car</button>
-                            <button onClick={() => handleScrap(vehicle.key)} >Request for scrap</button>
-                        </div>
-                    )
-                })}
+                    
+            )}
+            )}
             </div>
+            </div>}
+            {!isOwner && <div>
+            <h1>Vehicles Produced</h1>
+            <div className='outer' >
+                {data.map(vehicle=>{
+                    return(
+                        <div className ="card" key={vehicle.key} >
+        
+                            <div className ="container">
+                                <h3>{vehicle.value.make}</h3>
+                                <h3>{vehicle.value.model}</h3>
+                                <p>{vehicle.value.color}</p>
+                           
+                            </div>
+                            <div className="buttons">
+                                <button onClick={() => handleClick(vehicle.key)} >View Details</button>
+                                <button onClick={() => handleDelete(vehicle.key)} >Delete Car</button>
+                            </div>
+            
+                        </div>
+                    
+            )}
+            )}
+            </div>
+            </div>}
         </div>
     )
 }

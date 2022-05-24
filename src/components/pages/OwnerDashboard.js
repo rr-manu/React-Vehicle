@@ -56,7 +56,9 @@ export default function OwnerDashboard() {
             <Link to="/vehicle-form">
                 <button className="primary-button">Add Vehicle</button>
             </Link>
-            <Vehicles data={vehiclesData} />
+            {/* Display vehicle if hasVehicleData */}
+            {hasVehicles ? <Vehicles data={vehiclesData} /> : <h2>No Vehicles Found</h2>}
+
         </div>
     )
 }
