@@ -167,7 +167,10 @@ export default function VehicleForm() {
     <div className='text-center'>
         <h1>Vehicle Form</h1>
         <Link to='/owner-dashboard'>
-           <button className='primary-button'>Dashboard</button>
+           <button className='primary-button'>Owner Dashboard</button>
+        </Link>
+        <Link to='/manuf-dashboard'>
+            <button className='primary-button'>Manuf Dashboard</button>
         </Link>
         {submitting &&
        <div>

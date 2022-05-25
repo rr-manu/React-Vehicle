@@ -136,7 +136,7 @@ export default function TransDashboard(){
 
     return(
         <div className='text-center'>
-             <h1 className="title">Scrapping Dashboard</h1>
+             <h1 className="title">Transport Authority Dashboard</h1>
             <h1 className="sub-title">Welcome {username}</h1>
             <Link to="/">
                 <button className="primary-button" onClick={authService.logout}>Log out</button>
