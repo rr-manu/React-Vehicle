@@ -148,6 +148,7 @@ const Vehicles=({data})=>{
                             <div className="buttons">
                                 <button className='secondary-button' onClick={() => handleClick(vehicle.key)} >View Details</button>
                                 <button className='secondary-button' onClick={() => handleDelete(vehicle.key)} >Delete Car</button>
+                                <button className='secondary-button' onClick={() => handleSell(vehicle.key)} >Put Up For Sale</button>
                             </div>
             
                         </div>
