@@ -112,8 +112,56 @@ export default function VehicleDetails() {
                   <td>{vehicleData.color}</td>
                 </tr>
                 <tr>
+                  <td>Seats</td>
+                  <td>{vehicleData.seats}</td>
+                </tr>
+                <tr>
                   <td>Fuel Type</td>
                   <td>{vehicleData.fuelType}</td>
+                </tr>
+                <tr>
+                  <td>Transmission Type</td>
+                  <td>{vehicleData.transmissionType}</td>
+                </tr>
+                <tr>
+                  <td>Engine Capacity</td>
+                  <td>{vehicleData.engine} cc</td>
+                </tr>
+                <tr>
+                  <td>Max Power</td>
+                  <td>{vehicleData.maxPower} bhp</td>
+                </tr>
+                <tr>
+                  <td>Mileage</td>
+                  <td>{vehicleData.mileage} km/l</td>
+                </tr>
+                <tr>
+                  <td>Km Driven</td>
+                  <td>{vehicleData.kmDriven} km</td>
+                </tr>
+                <tr>
+                  <td>Year</td>
+                  <td>{vehicleData.year}</td>
+                </tr>
+                <tr>
+                  <td>Average Cost Price</td>
+                  <td>{vehicleData.avg_cost_price} lakhs</td>
+                </tr>
+                <tr>
+                  <td>Owner</td>
+                  <td>{vehicleData.owner}</td>
+                </tr>
+                <tr>
+                  <td>Owner Level</td>
+                  <td>{vehicleData.ownerLevel}</td>
+                </tr>
+                <tr>
+                  <td>Registration Date</td>
+                  <td>{vehicleData.registrationDate}</td>
+                </tr>
+                <tr>
+                  <td>Registration Verified</td>
+                  <td>{String(vehicleData.isRegistrationVerified)}</td>
                 </tr>
                 <tr>
                   <td>InsuranceID</td>
@@ -124,24 +172,12 @@ export default function VehicleDetails() {
                   <td>{vehicleData.insuranceExpiry}</td>
                 </tr>
                 <tr>
-                  <td>Max Power</td>
-                  <td>{vehicleData.maxPower}</td>
+                  <td>Insurance Verified</td>
+                  <td>{String(vehicleData.isInsuranceVerified)}</td>
                 </tr>
                 <tr>
-                  <td>Mileage</td>
-                  <td>{vehicleData.mileage}</td>
-                </tr>
-                <tr>
-                  <td>Seats</td>
-                  <td>{vehicleData.seats}</td>
-                </tr>
-                <tr>
-                  <td>Transmission</td>
-                  <td>{vehicleData.transmissionType}</td>
-                </tr>
-                <tr>
-                  <td>Year</td>
-                  <td>{vehicleData.year}</td>
+                  <td>Health Status</td>
+                  <td>{vehicleData.healthStatus}</td>
                 </tr>
                 <tr>
                   <td>Status</td>
@@ -154,14 +190,14 @@ export default function VehicleDetails() {
       )}
 
       <h2>History of {carid}</h2>
-      <div className="outer">
+      <div className="outer-main">
         {/* display vehicle history */}
         {hasHistoryData && (
-          <div className="inner">
+          <div className="inner-main">
             {historyData.map((historyData) => {
               return (
-                <div className="card" key={historyData.Timestamp.seconds}>
-                  <div className="container">
+                <div className="card-history" key={historyData.Timestamp.seconds}>
+                  <div className="container-main">
                     <h3>{historyData.Value.status}</h3>
                   </div>
                 </div>
@@ -170,10 +206,12 @@ export default function VehicleDetails() {
           </div>
         )}
       </div>
+      <div className="pred">
       <h2>Predicted Price of {carid}</h2>
       {hasPredictedPrice &&
           <h3>{predictedPrice} lakhs</h3>}
       {!hasPredictedPrice && <h3>Loading...</h3>}
+      </div>
     </div>
   );
 }

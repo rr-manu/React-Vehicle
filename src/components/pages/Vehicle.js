@@ -132,20 +132,22 @@ const Vehicles=({data})=>{
             </div>}
             {!isOwner && <div>
             <h1>Vehicles Produced</h1>
-            <div className='outer' >
+            <div className='outer-main' >
                 {data.map(vehicle=>{
                     return(
-                        <div className ="card" key={vehicle.key} >
+                        <div className ="card-main" key={vehicle.key} >
         
-                            <div className ="container">
+                            <div className ="container-main">
                                 <h3>{vehicle.value.make}</h3>
                                 <h3>{vehicle.value.model}</h3>
+                                <p>{vehicle.value.transmissionType}</p>
+                                <p>{vehicle.value.fuelType}</p>
                                 <p>{vehicle.value.color}</p>
                            
                             </div>
                             <div className="buttons">
-                                <button onClick={() => handleClick(vehicle.key)} >View Details</button>
-                                <button onClick={() => handleDelete(vehicle.key)} >Delete Car</button>
+                                <button className='secondary-button' onClick={() => handleClick(vehicle.key)} >View Details</button>
+                                <button className='secondary-button' onClick={() => handleDelete(vehicle.key)} >Delete Car</button>
                             </div>
             
                         </div>
