@@ -52,7 +52,7 @@ export default function TransDashboard(){
     }
     console.log(inspection_data);
 
-    const postResponse = await Post(post_url,inspectionData);
+    const postResponse = await Post(post_url,inspection_data);
     console.log(postResponse);
     };
 
@@ -67,7 +67,7 @@ export default function TransDashboard(){
     }
     console.log(registration_data);
 
-    const postResponse = await Post(post_url,registrationData);
+    const postResponse = await Post(post_url,registration_data);
     console.log(postResponse);
     };
 
@@ -82,7 +82,7 @@ export default function TransDashboard(){
     }
     console.log(insurance_data);
 
-    const postResponse = await Post(post_url,insuranceData);
+    const postResponse = await Post(post_url,insurance_data);
     console.log(postResponse);
     };
 
